@@ -1,0 +1,194 @@
+images {
+  image: "/main/dialog_images/bubble0@2x.png"
+}
+images {
+  image: "/main/dialog_images/bubble1@2x.png"
+}
+images {
+  image: "/main/dialog_images/bubble2@2x.png"
+}
+images {
+  image: "/main/dialog_images/dialog_frame@2x.png"
+}
+images {
+  image: "/main/dialog_images/fail@2x.png"
+}
+images {
+  image: "/main/dialog_images/forwardbutton_0@2x.png"
+}
+images {
+  image: "/main/dialog_images/forwardbutton_1@2x.png"
+}
+images {
+  image: "/main/dialog_images/homebutton_0@2x.png"
+}
+images {
+  image: "/main/dialog_images/homebutton_1@2x.png"
+}
+images {
+  image: "/main/dialog_images/mouth10@2x.png"
+}
+images {
+  image: "/main/dialog_images/mouth11@2x.png"
+}
+images {
+  image: "/main/dialog_images/mouth12@2x.png"
+}
+images {
+  image: "/main/dialog_images/mouth8@2x.png"
+}
+images {
+  image: "/main/dialog_images/mouth9@2x.png"
+}
+images {
+  image: "/main/dialog_images/outline0@2x.png"
+}
+images {
+  image: "/main/dialog_images/outline1@2x.png"
+}
+images {
+  image: "/main/dialog_images/outline2@2x.png"
+}
+images {
+  image: "/main/dialog_images/replaybutton_0@2x.png"
+}
+images {
+  image: "/main/dialog_images/replaybutton_1@2x.png"
+}
+images {
+  image: "/main/level_images/head0@2x.png"
+}
+images {
+  image: "/main/level_images/head1@2x.png"
+}
+images {
+  image: "/main/level_images/head2@2x.png"
+}
+animations {
+  id: "tongue"
+  images {
+    image: "/main/dialog_images/mouth8@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "home_pressed"
+  images {
+    image: "/main/dialog_images/homebutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "home_released"
+  images {
+    image: "/main/dialog_images/homebutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "replay_pressed"
+  images {
+    image: "/main/dialog_images/replaybutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "replay_released"
+  images {
+    image: "/main/dialog_images/replaybutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "forward_pressed"
+  images {
+    image: "/main/dialog_images/forwardbutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "forward_released"
+  images {
+    image: "/main/dialog_images/forwardbutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "burp"
+  images {
+    image: "/main/dialog_images/mouth9@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth10@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth9@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth10@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth9@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth10@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth9@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth10@2x.png"
+  }
+  images {
+    image: "/main/dialog_images/mouth11@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 2
+extrude_borders: 2
+inner_padding: 2

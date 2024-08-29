@@ -1,0 +1,292 @@
+images {
+  image: "/main/game_images/belt@2x.png"
+}
+images {
+  image: "/main/game_images/bottom@2x.png"
+}
+images {
+  image: "/main/game_images/clock_hand@2x.png"
+}
+images {
+  image: "/main/game_images/new_clock@2x.png"
+}
+images {
+  image: "/main/game_images/paper@2x.png"
+}
+images {
+  image: "/main/game_images/bacon@2x.png"
+}
+images {
+  image: "/main/game_images/brownslice@2x.png"
+}
+images {
+  image: "/main/game_images/cheeses@2x.png"
+}
+images {
+  image: "/main/game_images/chickens@2x.png"
+}
+images {
+  image: "/main/game_images/hams@2x.png"
+}
+images {
+  image: "/main/game_images/leaves@2x.png"
+}
+images {
+  image: "/main/game_images/sausages@2x.png"
+}
+images {
+  image: "/main/game_images/whiteslice@2x.png"
+}
+images {
+  image: "/main/game_images/slice@2x.png"
+}
+images {
+  image: "/main/game_images/plate@2x.png"
+}
+images {
+  image: "/main/game_images/brownloaf@2x.png"
+}
+images {
+  image: "/main/game_images/cheese@2x.png"
+}
+images {
+  image: "/main/game_images/chicken@2x.png"
+}
+images {
+  image: "/main/game_images/ham@2x.png"
+}
+images {
+  image: "/main/game_images/lettuce@2x.png"
+}
+images {
+  image: "/main/game_images/loaf@2x.png"
+}
+images {
+  image: "/main/game_images/porkbelly@2x.png"
+}
+images {
+  image: "/main/game_images/roast@2x.png"
+}
+images {
+  image: "/main/game_images/sausage@2x.png"
+}
+images {
+  image: "/main/game_images/whiteloaf@2x.png"
+}
+images {
+  image: "/main/game_images/handplate@2x.png"
+}
+images {
+  image: "/main/game_images/sweephand@2x.png"
+}
+images {
+  image: "/main/game_images/star@2x.png"
+}
+images {
+  image: "/main/game_images/plus_egg@2x.png"
+}
+images {
+  image: "/main/game_images/plus_ketchup@2x.png"
+}
+images {
+  image: "/main/game_images/plus_onion@2x.png"
+}
+images {
+  image: "/main/game_images/plus_pickle@2x.png"
+}
+images {
+  image: "/main/game_images/plus_tomato@2x.png"
+}
+images {
+  image: "/main/game_images/egg@2x.png"
+}
+images {
+  image: "/main/game_images/onion@2x.png"
+}
+images {
+  image: "/main/game_images/pickle@2x.png"
+}
+images {
+  image: "/main/game_images/tomato@2x.png"
+}
+images {
+  image: "/main/game_images/fly0@2x.png"
+}
+images {
+  image: "/main/game_images/fly1@2x.png"
+}
+images {
+  image: "/main/game_images/goo@2x.png"
+}
+images {
+  image: "/main/game_images/drop@2x.png"
+}
+images {
+  image: "/main/game_images/ketchup0@2x.png"
+}
+images {
+  image: "/main/game_images/ketchup1@2x.png"
+}
+images {
+  image: "/main/game_images/ketchup2@2x.png"
+}
+images {
+  image: "/main/game_images/ketchup3@2x.png"
+}
+images {
+  image: "/main/game_images/ketchup4@2x.png"
+}
+animations {
+  id: "slice"
+  images {
+    image: "/main/game_images/slice@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "cheese"
+  images {
+    image: "/main/game_images/cheeses@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "lettuce"
+  images {
+    image: "/main/game_images/leaves@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "ham"
+  images {
+    image: "/main/game_images/hams@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "chicken"
+  images {
+    image: "/main/game_images/chickens@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "brownloaf"
+  images {
+    image: "/main/game_images/brownslice@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "roast"
+  images {
+    image: "/main/game_images/roasts@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "whiteloaf"
+  images {
+    image: "/main/game_images/whiteslice@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "sausage"
+  images {
+    image: "/main/game_images/sausages@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "porkbelly"
+  images {
+    image: "/main/game_images/bacon@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "fly"
+  images {
+    image: "/main/game_images/fly0@2x.png"
+  }
+  images {
+    image: "/main/game_images/fly1@2x.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 20
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "ketchup_down"
+  images {
+    image: "/main/game_images/ketchup1@2x.png"
+  }
+  images {
+    image: "/main/game_images/ketchup2@2x.png"
+  }
+  images {
+    image: "/main/game_images/ketchup3@2x.png"
+  }
+  images {
+    image: "/main/game_images/ketchup4@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 13
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "ketchup_up"
+  images {
+    image: "/main/game_images/ketchup3@2x.png"
+  }
+  images {
+    image: "/main/game_images/ketchup2@2x.png"
+  }
+  images {
+    image: "/main/game_images/ketchup1@2x.png"
+  }
+  images {
+    image: "/main/game_images/ketchup0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 13
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 2
+extrude_borders: 2
+inner_padding: 2

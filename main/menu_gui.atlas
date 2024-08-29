@@ -1,0 +1,166 @@
+images {
+  image: "/main/images/fence@2x.png"
+}
+images {
+  image: "/main/images/musicbutton_0@2x.png"
+}
+images {
+  image: "/main/images/musicbutton_1@2x.png"
+}
+images {
+  image: "/main/images/nomusicbutton_0@2x.png"
+}
+images {
+  image: "/main/images/nomusicbutton_1@2x.png"
+}
+images {
+  image: "/main/images/nosoundbutton_0@2x.png"
+}
+images {
+  image: "/main/images/nosoundbutton_1@2x.png"
+}
+images {
+  image: "/main/images/playbutton_0@2x.png"
+}
+images {
+  image: "/main/images/playbutton_1@2x.png"
+}
+images {
+  image: "/main/images/roof@2x.png"
+}
+images {
+  image: "/main/images/soundbutton_0@2x.png"
+}
+images {
+  image: "/main/images/soundbutton_1@2x.png"
+}
+images {
+  image: "/main/images/subtitle@2x.png"
+}
+images {
+  image: "/main/images/title@2x.png"
+}
+images {
+  image: "/main/help_images/smile@2x.png"
+}
+images {
+  image: "/main/help_images/headshoulders@2x.png"
+}
+images {
+  image: "/main/images/review_arms@2x.png"
+}
+images {
+  image: "/main/images/reviews_sign@2x.png"
+}
+images {
+  image: "/main/images/clipping0@2x.png"
+}
+images {
+  image: "/main/images/clipping1@2x.png"
+}
+images {
+  image: "/main/images/clipping2@2x.png"
+}
+animations {
+  id: "play_pressed"
+  images {
+    image: "/main/images/playbutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "play_released"
+  images {
+    image: "/main/images/playbutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "sound_pressed"
+  images {
+    image: "/main/images/soundbutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "sound_released"
+  images {
+    image: "/main/images/soundbutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "no_sound_pressed"
+  images {
+    image: "/main/images/nosoundbutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "no_sound_released"
+  images {
+    image: "/main/images/nosoundbutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "music_pressed"
+  images {
+    image: "/main/images/musicbutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "music_released"
+  images {
+    image: "/main/images/musicbutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "no_music_pressed"
+  images {
+    image: "/main/images/nomusicbutton_1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "no_music_released"
+  images {
+    image: "/main/images/nomusicbutton_0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 2
+extrude_borders: 2
+inner_padding: 0

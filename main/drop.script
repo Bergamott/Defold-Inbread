@@ -1,0 +1,20 @@
+go.property("target_y", 0)
+go.property("fall_time", 0)
+local target_sandwich
+
+local function landed(self)
+	msg.post("game#script", "ketchup_landed", {drop_pos = go.get_world_position(),
+		target = self.target_sandwich})
+	go.delete()
+end
+
+function init(self)
+	self.target_sandwich = nil
+	go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, self.target_y*2, go.EASING_INQUAD , self.fall_time, 0, landed)
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("set_target") then
+    	pprint(message.target)
+    end
+end

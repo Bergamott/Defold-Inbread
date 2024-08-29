@@ -1,0 +1,33 @@
+images {
+  image: "/main/help_images/bubble@2x.png"
+}
+images {
+  image: "/main/help_images/hand@2x.png"
+}
+images {
+  image: "/main/help_images/plane@2x.png"
+}
+images {
+  image: "/main/help_images/smile@2x.png"
+}
+images {
+  image: "/main/help_images/wideplane@2x.png"
+}
+images {
+  image: "/main/help_images/wrong@2x.png"
+}
+images {
+  image: "/main/help_images/headshoulders@2x.png"
+}
+images {
+  image: "/main/help_images/invisible.png"
+}
+images {
+  image: "/main/help_images/wrong@2x.png"
+}
+images {
+  image: "/main/help_images/mouth8@2x.png"
+}
+margin: 2
+extrude_borders: 0
+inner_padding: 2

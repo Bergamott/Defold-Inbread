@@ -1,0 +1,143 @@
+local max_scroll_y = 800
+
+local down_y = 0
+local start_scroll_y = 0
+local button_pressed = 0
+
+local available_levels
+
+function init(self)
+    msg.post("levels#gui","disable")
+end
+
+local function activate_levels(self)
+	local is_available = true
+	local num_levels = #(settings_table["scores"])
+	for i=1,num_levels do
+		local slice_button = gui.get_node("slice" .. i)
+		if is_available then
+			available_levels = i
+			gui.set_color(slice_button, vmath.vector4(1, 1, 1, 1))
+			
+		else
+			gui.set_color(slice_button, vmath.vector4(1, 1, 1, 0.5))
+		end
+		local result = string.byte(settings_table["scores"],i)
+		gui.play_flipbook(gui.get_node("pluses" .. i), ("plus" .. (result-48)))
+		is_available = (result > 48)
+	end
+	-- Show locks
+	gui.set_enabled(gui.get_node("lock2"), available_levels < 13)
+	gui.set_enabled(gui.get_node("lock3"), available_levels < 25)
+end
+
+local function activate(self)
+	msg.post("@render:", "clear_color", { color = vmath.vector4(0.39, 0.39, 0.39, 0) } )
+	msg.post(".", "acquire_input_focus")
+	msg.post("levels#gui","enable")
+	activate_levels(self)
+	gui.play_flipbook(gui.get_node("mouth1"), "licking")
+	gui.play_flipbook(gui.get_node("mouth2"), "licking")
+	gui.play_flipbook(gui.get_node("mouth3"), "licking")
+	local bg_height = gui.get_size(gui.get_node("background"))
+	max_scroll_y = bg_height.y*ratio/1.125
+end
+
+local function deactivate(self)
+	msg.post(".", "release_input_focus")
+	gui.play_flipbook(gui.get_node("mouth1"), "stop_licking")
+	gui.play_flipbook(gui.get_node("mouth2"), "stop_licking")
+	gui.play_flipbook(gui.get_node("mouth3"), "stop_licking")
+	msg.post("levels#gui","disable")
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("activate") then
+    	activate(self)
+    elseif message_id == hash("deactivate") then
+    	deactivate(self)
+    end
+end
+
+function on_input(self, action_id, action)
+    if action_id == hash("mouse") then
+    	if action.pressed or action.released then
+    		local button_released = 0
+    		if button_pressed > 0 then
+    			button_released = button_pressed
+    		end
+    		local back_pos = gui.get_position(gui.get_node("background"))
+    		local back_scale = gui.get_scale(gui.get_node("background"))
+    		local y_scale = back_scale.y*ratio / 0.5625
+    		for i=1,available_levels do
+    			local frame_num = math.floor((i+11)/12)
+	    		local frame_pos = gui.get_position(gui.get_node("frame" .. frame_num))
+    			local button = gui.get_node("slice" .. i)
+    			local but_pos = gui.get_position(button)
+    			local but_screen_pos = gui.get_screen_position(button)
+    			local but_size = gui.get_size(button)
+    			local dx = action.x - (but_pos.x*back_scale.x+back_pos.x)
+    			local dy = action.screen_y - but_screen_pos.y
+    			if dx < 0.5*but_size.x*back_scale.x and dx > -0.5*but_size.x*back_scale.x and
+    				dy < 0.5*but_size.y*y_scale and dy > -0.5*but_size.y*y_scale then
+    				if action.pressed then
+    					if i < 13 then
+    						gui.play_flipbook(button, "slice1_pressed")
+    					elseif i < 25 then
+    						gui.play_flipbook(button, "slice2_pressed")
+    					else
+    						gui.play_flipbook(button, "slice3_pressed")
+    					end
+    					button_pressed = i
+    				else
+    					if i == button_pressed then
+    						-- Play click sound
+    						if settings_table["sound_on"] then
+								msg.post("/main_menu#click", "play_sound")
+							end
+    						-- Chosen level
+    						msg.post("controller#script", "show_game_from_levels", {level = i})
+    					end
+    				end
+    			end
+    		end
+    		
+    		if action.released then
+    			button_pressed = 0
+    		end
+    	
+    		if button_pressed == 0 then
+    			if action.pressed then
+    				-- Start dragging
+    				down_y = action.y
+    				start_scroll_y = back_pos.y
+    			else
+    				down_y = 0
+    			end
+    		end
+    		
+    		if button_released > 0 then
+    			if button_released < 13 then
+    				gui.play_flipbook(gui.get_node("slice" .. button_released), "slice1_released")
+    			elseif button_released < 25 then
+    				gui.play_flipbook(gui.get_node("slice" .. button_released), "slice2_released")
+    			else
+    				gui.play_flipbook(gui.get_node("slice" .. button_released), "slice3_released")
+    			end
+    			button_released = 0
+    		end
+    	else
+    		if down_y > 0 then
+    			-- Drag
+    			local back_pos = gui.get_position(gui.get_node("background"))
+    			back_pos.y = start_scroll_y + action.y - down_y
+    			if back_pos.y < 568 then
+    				back_pos.y = 568
+    			elseif back_pos.y > max_scroll_y then
+    				back_pos.y = max_scroll_y
+    			end
+    			gui.set_position(gui.get_node("background"), back_pos)
+    		end
+    	end
+    end
+end

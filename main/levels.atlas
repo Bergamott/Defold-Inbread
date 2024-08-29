@@ -1,0 +1,213 @@
+images {
+  image: "/main/level_images/sign0@2x.png"
+}
+images {
+  image: "/main/level_images/sign1@2x.png"
+}
+images {
+  image: "/main/level_images/sign2@2x.png"
+}
+images {
+  image: "/main/level_images/plus0@2x.png"
+}
+images {
+  image: "/main/level_images/plus1@2x.png"
+}
+images {
+  image: "/main/level_images/plus2@2x.png"
+}
+images {
+  image: "/main/level_images/plus3@2x.png"
+}
+images {
+  image: "/main/level_images/mouth13@2x.png"
+}
+images {
+  image: "/main/level_images/mouth14@2x.png"
+}
+images {
+  image: "/main/level_images/mouth15@2x.png"
+}
+images {
+  image: "/main/level_images/mouth16@2x.png"
+}
+images {
+  image: "/main/level_images/mouth17@2x.png"
+}
+images {
+  image: "/main/level_images/tavern0@2x.png"
+}
+images {
+  image: "/main/level_images/tavern1@2x.png"
+}
+images {
+  image: "/main/level_images/tavern2@2x.png"
+}
+images {
+  image: "/main/level_images/frame@2x.png"
+}
+images {
+  image: "/main/level_images/head0@2x.png"
+}
+images {
+  image: "/main/level_images/head1@2x.png"
+}
+images {
+  image: "/main/level_images/head2@2x.png"
+}
+images {
+  image: "/main/level_images/lock@2x.png"
+}
+images {
+  image: "/main/level_images/level_slice0@2x.png"
+}
+images {
+  image: "/main/level_images/level_slice1@2x.png"
+}
+images {
+  image: "/main/level_images/level_slice2@2x.png"
+}
+images {
+  image: "/main/level_images/level_slice0_d@2x.png"
+}
+images {
+  image: "/main/level_images/level_slice1_d@2x.png"
+}
+images {
+  image: "/main/level_images/level_slice2_d@2x.png"
+}
+animations {
+  id: "licking"
+  images {
+    image: "/main/level_images/mouth13@2x.png"
+  }
+  images {
+    image: "/main/level_images/mouth14@2x.png"
+  }
+  images {
+    image: "/main/level_images/mouth15@2x.png"
+  }
+  images {
+    image: "/main/level_images/mouth16@2x.png"
+  }
+  images {
+    image: "/main/level_images/mouth17@2x.png"
+  }
+  playback: PLAYBACK_LOOP_PINGPONG
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "slice1_pressed"
+  images {
+    image: "/main/level_images/level_slice0_d@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "slice2_pressed"
+  images {
+    image: "/main/level_images/level_slice1_d@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "slice3_pressed"
+  images {
+    image: "/main/level_images/level_slice2_d@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "slice1_released"
+  images {
+    image: "/main/level_images/level_slice0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "slice2_released"
+  images {
+    image: "/main/level_images/level_slice1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "slice3_released"
+  images {
+    image: "/main/level_images/level_slice2@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "stop_licking"
+  images {
+    image: "/main/level_images/mouth15@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "plus0"
+  images {
+    image: "/main/level_images/plus0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "plus1"
+  images {
+    image: "/main/level_images/plus1@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "plus2"
+  images {
+    image: "/main/level_images/plus2@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "plus3"
+  images {
+    image: "/main/level_images/plus3@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 2
+extrude_borders: 2
+inner_padding: 0

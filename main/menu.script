@@ -1,0 +1,56 @@
+local hillbilly_x = {110.0, 210.0, 60.0, 160.0, 260.0}
+local hillbilly_y = {203, 203, 138, 138, 138}
+local hillbilly_z = {0.4, 0.42, 0.6, 0.66, 0.63}
+
+local hillbillies = {}
+local should_spawn = false
+
+function init(self)
+
+end
+
+local function activate(self)
+	go.set_position(vmath.vector3(0,0,0))
+	should_spawn = true
+end
+
+local function deactivate(self)
+	go.set_position(vmath.vector3(0,0,-5))
+	remove_hillbillies(self)
+end
+
+function remove_hillbillies(self)
+	go.delete_all(hillbillies)
+	hillbillies = {}
+end
+
+function spawn_hillbillies(self)
+	should_spawn = false
+	local scale_vec = go.get_scale_vector("main_menu")
+	local y_scale = ratio / 0.5625
+	if y_scale > 1.25 then
+		y_scale = 1.25
+	end
+	scale_vec.y = scale_vec.y * y_scale
+	for i=1,5 do
+		local hb = factory.create("#hillbilly_factory",vmath.vector3(hillbilly_x[i],
+			hillbilly_y[i], hillbilly_z[i]), nil, {hillbilly_type = i, y_scale = y_scale}, scale_vec)
+		hillbillies[i] = hb
+		msg.post(hillbillies[i], "set_parent", { parent_id = go.get_id() })
+		msg.post(hillbillies[i], "start_animation")
+	end
+end
+
+function update(self, dt)
+	if should_spawn and ratio ~= nil then
+		spawn_hillbillies(self)	
+	end
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("activate") then
+    	activate(self)
+    elseif message_id == hash("deactivate") then
+    	deactivate(self)
+    end
+end

@@ -1,0 +1,26 @@
+go.property("magnitude", 1)
+
+local timer
+
+function init(self)
+	if self.magnitude == 1 then
+    	particlefx.play("#stars1")
+    elseif self.magnitude == 2 then
+    	particlefx.play("#stars2")
+    else
+    	particlefx.play("#stars3")
+    end
+	self.timer = 1.0
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    self.timer = self.timer - dt
+    if self.timer < 0 then
+    	go.delete()
+    end
+end

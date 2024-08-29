@@ -1,0 +1,138 @@
+local num_levels = 36
+
+local help_scenes = {1,2,4,8, 16, 26, 31}
+local next_level
+
+local function save_settings(self)
+	local settings_path = sys.get_save_file("Inbread", "settings")
+	if not sys.save(settings_path, settings_table) then
+    -- Alert user that the data could not be saved
+	end
+end
+
+local function load_settings(self)
+	local settings_path = sys.get_save_file("Inbread", "settings")
+	settings_table = sys.load(settings_path)
+	if not settings_table.scores then
+	--if true then -- Temporary, change later
+		-- Default settings
+		settings_table["music_on"] = true
+		settings_table["sound_on"] = true
+		settings_table["scores"] = string.rep("0",num_levels)
+		settings_table["help_seen"] = 0
+		save_settings(self)
+	elseif #(settings_table["scores"]) < num_levels then
+		-- New levels have been added. Extend score string.
+		local extended_scores = settings_table["scores"]
+		local current_length = #extended_scores
+		for i=current_length+1,num_levels do
+			extended_scores = extended_scores .. "0"
+		end
+		settings_table["scores"] = extended_scores
+		save_settings(self)
+	end
+end
+
+function init(self)
+	load_settings(self)
+    msg.post("main_menu#script","activate")
+    msg.post("main_menu#gui","activate")
+    math.randomseed( os.time() )
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end
+
+local function present_new_level(self)
+    msg.post("game#script","activate",{level = self.next_level})
+    msg.post("game#gui","activate")	
+end
+
+local function prepare_for_new_level(self, lev)
+	self.next_level = lev
+	local ix = 0
+	for i=1,#help_scenes do
+		if help_scenes[i] == lev then
+			ix = i
+		end
+	end
+	-- Temp
+	--ix = 0
+	if ix <= settings_table["help_seen"] then
+	--if false then
+		-- No help view to show. Go directly to new level.
+		present_new_level(self)
+    else
+    	msg.post("help#script","activate",{scene = ix})
+    	settings_table["help_seen"] = ix
+    	save_settings(self)
+	end
+end
+
+local function store_result(self, result)
+	score_string = settings_table["scores"]
+	if result > string.byte(score_string,level)-48 then
+		settings_table["scores"] = string.sub(score_string,1,level-1) .. result
+			.. string.sub(score_string,level + 1)
+		save_settings(self)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("show_levels") then
+    	msg.post("main_menu#script","deactivate")
+    	msg.post("main_menu#gui","deactivate")
+    	msg.post("levels#gui","activate")	
+    elseif message_id == hash("show_menu_from_levels") then
+    	msg.post("levels#gui","deactivate")
+    	msg.post("main_menu#script","activate")
+    	msg.post("main_menu#gui","activate")
+    elseif message_id == hash("show_game_from_levels") then
+    	msg.post("levels#gui","deactivate")
+    	prepare_for_new_level(self, message.level)
+    elseif message_id == hash("show_menu_from_game") then
+    	msg.post("game#gui","deactivate")
+    	msg.post("game#script","clean_up")
+    	msg.post("game#script","deactivate")
+    	msg.post("main_menu#script","activate")
+    	msg.post("main_menu#gui","activate")
+    elseif message_id == hash("replay_level") then
+    	msg.post("game#script","clean_up")
+    	msg.post("game#script","replay")
+    	msg.post("game#gui","activate")
+    elseif message_id == hash("next_level") then
+    	msg.post("game#gui","deactivate")
+    	msg.post("game#script","clean_up")
+    	msg.post("game#script","deactivate")
+    	if self.next_level % 12 == 0 then
+    		msg.post("reviews#gui","activate", {completed = self.next_level})
+    	else
+    		prepare_for_new_level(self, self.next_level+1)
+    	end
+    elseif message_id == hash("show_game_from_help") then
+    	msg.post("help#script","deactivate")
+    	present_new_level(self)
+    elseif message_id == hash("store_result") then
+    	store_result(self, message.result)
+    elseif message_id == hash("continue_from_reviews") then
+    	msg.post("reviews#gui","deactivate")
+    	if self.next_level < num_levels then
+    		prepare_for_new_level(self, self.next_level+1)
+    	else
+    		msg.post("main_menu#script","activate")
+    		msg.post("main_menu#gui","activate")
+    	end
+    end
+end
+
+function on_input(self, action_id, action)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end

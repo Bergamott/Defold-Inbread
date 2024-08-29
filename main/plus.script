@@ -1,0 +1,12 @@
+go.property("type", 0)
+
+local plus_frames = {hash("plus_tomato@2x"), hash("plus_pickle@2x"),
+	hash("plus_onion@2x"), hash("plus_egg@2x"), hash("plus_ketchup@2x"),
+	hash("fly0@2x")}
+
+function init(self)
+    msg.post("#sprite", "play_animation", {id = plus_frames[self.type]})
+    go.set_rotation(vmath.quat_rotation_z(0.15))
+	go.animate(".", "rotation", go.PLAYBACK_LOOP_PINGPONG, vmath.quat_rotation_z(-0.15),
+		go.EASING_INOUTQUAD, 0.6)
+end

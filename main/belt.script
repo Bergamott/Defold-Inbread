@@ -1,0 +1,35 @@
+go.property("speed", 30)
+local x_pos = 0
+local top
+local belt_state
+
+function init(self)
+    self.top = factory.create("#top_factory",vmath.vector3(0,0,0), nil, {})
+	self.x_pos = 0
+	msg.post(self.top, "set_parent", { parent_id = go.get_id() })
+	self.belt_state = 1
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+	if self.belt_state == 1 then
+    	self.x_pos = self.x_pos + dt*self.speed
+    	if self.x_pos <= -40 then
+    		self.x_pos = self.x_pos + 40
+    	elseif self.x_pos >= 40 then
+    		self.x_pos = self.x_pos - 40
+    	end
+    	go.set_position(vmath.vector3(self.x_pos,0,0), self.top)
+    end
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("halt") then
+    	self.belt_state = 0
+    end
+end
+

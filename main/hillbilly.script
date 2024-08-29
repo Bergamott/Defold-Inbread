@@ -1,0 +1,72 @@
+go.property("hillbilly_type", 1)
+go.property("y_scale", 1)
+
+local rotation_speeds = {0.2, 0.18, 0.22, 0.21, 0.19}
+local rock_times = {3.5, 3.9, 3.0, 3.7, 3.3}
+local hands_down_times = {1.0, 0.8, 0.7, 1.1, 0.9}
+local mouth_x = {4,2,3,1,0}
+local mouth_y = {216, 221.0, 210.0, 220.0, 224.0}
+local hands_top_y = {155, 161, 145, 148, 161}
+local hands_bottom_y = {105, 128, 100, 115, 126}
+local body_types = {hash("person0@2x"), hash("person1@2x"), hash("person2@2x"),
+	hash("person3@2x"), hash("person4@2x")}
+local hands_types = {hash("hands0@2x"), hash("hands1@2x"), hash("hands2@2x"),
+	hash("hands3@2x"), hash("hands4@2x")}
+local max_angle = 0.17
+
+local scale_vec
+
+function init(self)
+	self.scale_vec = go.get_scale_vector("main_menu")
+	self.scale_vec.y = self.scale_vec.y * self.y_scale
+	msg.post("#body", "play_animation", {id = body_types[self.hillbilly_type]})
+	self.rot_speed = rotation_speeds[self.hillbilly_type]
+	local pos = go.get_position()
+	self.mouth = factory.create("#mouth_factory",vmath.vector3(pos.x+self.scale_vec.x*mouth_x[self.hillbilly_type],
+			pos.y+self.scale_vec.y*mouth_y[self.hillbilly_type], pos.z+0.005), nil, {}, self.scale_vec)
+		
+	msg.post(self.mouth, "set_parent", { parent_id = go.get_id() })
+	
+	self.hands = factory.create("#hands_factory",vmath.vector3(pos.x,
+			pos.y+self.scale_vec.y*hands_top_y[self.hillbilly_type], pos.z+0.01), nil, {}, self.scale_vec)
+	msg.post(self.hands, "set_parent", { parent_id = go.get_id() })
+end
+
+function animate_hands_down(self)
+	local pos = go.get_position()
+	local crumbs = factory.create("#crumbs_factory",go.get_world_position(self.mouth), nil, {}, self.scale_vec)
+	msg.post(self.mouth, "play_animation", {id = hash("chew")})
+	go.animate(self.hands, "position.y", go.PLAYBACK_ONCE_FORWARD,
+		hands_bottom_y[self.hillbilly_type],
+		go.EASING_INOUTQUAD, 1.0, 0.3, animate_hands_up)
+end
+
+function animate_hands_up(self)
+	go.animate(self.hands, "position.y", go.PLAYBACK_ONCE_FORWARD,
+		hands_top_y[self.hillbilly_type],
+		go.EASING_INOUTQUAD, 1.0, hands_down_times[self.hillbilly_type],animate_hands_down)
+end
+
+
+function final(self)
+    go.delete(self.mouth)
+    go.delete(self.hands)
+end
+
+function update(self, dt)
+
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_animation") then
+		go.set_rotation(vmath.quat_rotation_z(max_angle))
+		go.animate(".", "rotation", go.PLAYBACK_LOOP_PINGPONG, vmath.quat_rotation_z(-max_angle),
+			go.EASING_INOUTQUAD, rock_times[self.hillbilly_type])
+		animate_hands_down(self)
+	end
+end
+
+function on_reload(self)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end

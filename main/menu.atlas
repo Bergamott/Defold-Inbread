@@ -1,0 +1,118 @@
+images {
+  image: "/builtins/graphics/particle_blob.png"
+}
+images {
+  image: "/main/images/menu_background.png"
+}
+images {
+  image: "/main/images/backs@2x.png"
+}
+images {
+  image: "/main/images/hands0@2x.png"
+}
+images {
+  image: "/main/images/hands1@2x.png"
+}
+images {
+  image: "/main/images/hands2@2x.png"
+}
+images {
+  image: "/main/images/hands3@2x.png"
+}
+images {
+  image: "/main/images/hands4@2x.png"
+}
+images {
+  image: "/main/images/mouth0@2x.png"
+}
+images {
+  image: "/main/images/mouth1@2x.png"
+}
+images {
+  image: "/main/images/mouth2@2x.png"
+}
+images {
+  image: "/main/images/mouth3@2x.png"
+}
+images {
+  image: "/main/images/mouth4@2x.png"
+}
+images {
+  image: "/main/images/mouth5@2x.png"
+}
+images {
+  image: "/main/images/mouth6@2x.png"
+}
+images {
+  image: "/main/images/mouth7@2x.png"
+}
+images {
+  image: "/main/images/person0@2x.png"
+}
+images {
+  image: "/main/images/person1@2x.png"
+}
+images {
+  image: "/main/images/person2@2x.png"
+}
+images {
+  image: "/main/images/person3@2x.png"
+}
+images {
+  image: "/main/images/person4@2x.png"
+}
+images {
+  image: "/main/images/fragment@2x.png"
+}
+animations {
+  id: "chew"
+  images {
+    image: "/main/images/mouth3@2x.png"
+  }
+  images {
+    image: "/main/images/mouth5@2x.png"
+  }
+  images {
+    image: "/main/images/mouth6@2x.png"
+  }
+  images {
+    image: "/main/images/mouth5@2x.png"
+  }
+  images {
+    image: "/main/images/mouth7@2x.png"
+  }
+  images {
+    image: "/main/images/mouth5@2x.png"
+  }
+  images {
+    image: "/main/images/mouth6@2x.png"
+  }
+  images {
+    image: "/main/images/mouth5@2x.png"
+  }
+  images {
+    image: "/main/images/mouth7@2x.png"
+  }
+  images {
+    image: "/main/images/mouth5@2x.png"
+  }
+  images {
+    image: "/main/images/mouth4@2x.png"
+  }
+  images {
+    image: "/main/images/mouth2@2x.png"
+  }
+  images {
+    image: "/main/images/mouth1@2x.png"
+  }
+  images {
+    image: "/main/images/mouth0@2x.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 2
+extrude_borders: 2
+inner_padding: 1

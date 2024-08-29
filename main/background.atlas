@@ -1,0 +1,12 @@
+images {
+  image: "/main/game_images/kitchen0@2x.jpg"
+}
+images {
+  image: "/main/game_images/kitchen1@2x.jpg"
+}
+images {
+  image: "/main/game_images/kitchen2@2x.jpg"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

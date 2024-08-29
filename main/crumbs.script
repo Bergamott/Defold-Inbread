@@ -1,0 +1,21 @@
+go.property("color", vmath.vector4(1, 1, 0.5, 1))
+
+local timer
+
+function init(self)
+    particlefx.play("#particlefx")
+	particlefx.set_constant("#particlefx", "emitter", "tint", self.color)
+	self.timer = 1.0
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    self.timer = self.timer - dt
+    if self.timer < 0 then
+    	go.delete()
+    end
+end

@@ -1,0 +1,109 @@
+go.property("type", 1)
+go.property("end_y", 0)
+go.property("end_x", 0)
+go.property("move_time", 0)
+go.property("belt_num", 0)
+
+local target = nil
+
+local function remove_me(self)
+	self.target = nil
+	msg.post(".", "release_input_focus")
+	msg.post("game#script", "remove_animal", {animal = go.get_id()})
+end
+
+local function land_on_sandwich(self)
+	msg.post(self.target, "add_plus", {plus_type = 6})
+	remove_me(self)
+end
+
+function init(self)
+	if self.type == 1 then
+		-- Fly
+		msg.post("#sprite", "play_animation", {id = hash("fly")})
+		local pos = go.get_world_position()
+		local oscillate_x = pos.x*2 + 28
+		go.animate(".","position.x", go.PLAYBACK_LOOP_PINGPONG, oscillate_x, go.EASING_INOUTQUAD, 0.5)
+		go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, self.end_y*2, go.EASING_LINEAR, (580-self.end_y)/200, 0, land_on_sandwich)
+		msg.post(".", "acquire_input_focus")
+	elseif self.type == 2 then
+		-- Goo
+		msg.post("#sprite", "play_animation", {id = hash("goo@2x")})
+		go.animate(".","position.x", go.PLAYBACK_ONCE_FORWARD, self.end_x, go.EASING_LINEAR, self.move_time, 0, remove_me)
+	elseif self.type == 3 then
+		-- Ketchup
+		msg.post("#sprite", "play_animation", {id = hash("ketchup0@2x")})
+		go.animate(".","position.x", go.PLAYBACK_ONCE_FORWARD, self.end_x, go.EASING_LINEAR, self.move_time, 0, remove_me)
+		msg.post(".", "acquire_input_focus")
+	end
+end
+
+local function bottle_up(self)
+	-- Return input focus
+	msg.post(".", "acquire_input_focus")
+end
+
+local function bottle_down(self)
+	msg.post("#sprite", "play_animation", {id = hash("ketchup_up")})
+	local my_pos = go.get_position()
+	go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, my_pos.y-2, go.EASING_LINEAR, 0.4, 0, bottle_up)
+	msg.post("game#script", "drop_ketchup", {bottle = go.get_id()})
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("set_target") then
+    	self.target = message.target
+    elseif message_id == hash("cancel_target") then
+    	if self.target == message.target then
+    		self.target = nil
+    		go.cancel_animations(".", "position.x")
+    		go.cancel_animations(".", "position.y")
+    		-- Move fly off screen
+    		local end_pos = vmath.vector3(math.random(640), 580*2, 0.5)
+    		local current_pos = go.get_position()
+			go.animate(".", "position", go.PLAYBACK_ONCE_FORWARD, end_pos, go.EASING_INQUAD, (end_pos.y - current_pos.y)/400, 0, remove_me)
+    	end
+    end
+end
+
+function on_input(self, action_id, action)
+    if action.pressed and action_id == hash("mouse") then
+		local pos = go.get_position()
+		local dx = pos.x*0.5 - action.x
+		local dy = pos.y*0.5 - action.y
+		if self.type == 1 then
+			if dx*dx+dy*dy < 500 then
+				local crumbs = factory.create("game#crumbs_factory",vmath.vector3(action.x, action.y, 0.5), nil, {color = vmath.vector4(0.61, 0.02, 0.12, 1)}, scale_vec)
+				if settings_table["sound_on"] then
+					msg.post("/game#swat", "play_sound")
+				end
+				remove_me(self)
+			end
+		elseif self.type == 3 then
+			if dx > -20 and dx < 20 and dy > -30 and dy < 30 then
+				msg.post(".", "release_input_focus")
+				msg.post("#sprite", "play_animation", {id = hash("ketchup_down")})
+				local my_pos = go.get_position()
+				go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, my_pos.y+2, go.EASING_LINEAR, 0.4, 0, bottle_down)
+				if settings_table["sound_on"] then
+					msg.post("/game#ketchup", "play_sound")
+				end
+			end
+		end
+	end
+end
+
+function on_reload(self)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end
