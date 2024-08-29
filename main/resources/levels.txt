@@ -30,7 +30,7 @@
                     "orders": ["0"],
                     "belts": [30,-20,20],
                     "time": 60,
-                    "plates": 4,
+                    "plates": 4
                 },
                 {
                     "orders": ["30"],
@@ -67,7 +67,7 @@
                     "orders": ["01230"],
                     "belts": [30,30,30],
                     "time": 60,
-                    "plates": 4,
+                    "plates": 4
                 },
                 {
                     "orders": ["330","110","310","130"],
@@ -90,7 +90,7 @@
                     "orders": ["01230"],
                     "belts": [60],
                     "time": 40,
-                    "plates": 1,
+                    "plates": 1
                 },
                 {
                     "orders": ["120","230","310","320","210"],
@@ -143,7 +143,7 @@
                     "time": 90,
                     "plates": 3,
                     "animalInterval": 7,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 },
 
                 {
@@ -152,7 +152,7 @@
                     "time": 85,
                     "plates": 3,
                     "animalInterval": 6,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 },
                 {
                     "orders": ["234","364","624","334","664"],
@@ -162,7 +162,7 @@
                     "condiments": [0,1],
                     "condimentInterval": 10,
                     "animalInterval": 8,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 },
                 {
                     "orders": ["3264","6134"],
@@ -172,7 +172,7 @@
                     "condiments": [1,2],
                     "condimentInterval": 10,
                     "animalInterval": 5,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 },
                 {
                     "orders": ["34","24","14","64","54","34"],
@@ -182,14 +182,14 @@
                     "condiments": [0,2],
                     "condimentInterval": 10,
                     "animalInterval": 4,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 },
 
                 {
                     "orders": ["4123654"],
                     "belts": [-65],
                     "time": 40,
-                    "plates": 1,
+                    "plates": 1
                 },
                 {
                     "orders": ["624","234","364"],
@@ -199,7 +199,7 @@
                     "condiments": [0,1,2],
                     "condimentInterval": 5,
                     "animalInterval": 6,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 },
                 {
                     "orders": ["34","24","14","64","54","34","14"],
@@ -209,7 +209,7 @@
                     "condiments": [0,1,2],
                     "condimentInterval": 6,
                     "animalInterval": 4,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 },
                 {
                     "orders": ["1524","3264","5624","6134"],
@@ -219,7 +219,7 @@
                     "condiments": [0,1,2],
                     "condimentInterval": 5,
                     "animalInterval": 5,
-                    "animalTypes": [0],
+                    "animalTypes": [0]
                 }
             ]
         },
