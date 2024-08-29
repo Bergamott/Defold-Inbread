@@ -25,11 +25,12 @@ max_count = 256
 
 [android]
 package = com.eweguo.inbread
-app_icon_36x36 = main/icons/bigicon-36.png
-app_icon_48x48 = main/icons/bigicon-48.png
-app_icon_72x72 = main/icons/bigicon-72.png
-app_icon_96x96 = main/icons/bigicon-96.png
-app_icon_144x144 = main/icons/bigicon-144.png
+app_icon_36x36 = /main/icons/bigicon-36.png
+app_icon_48x48 = /main/icons/bigicon-48.png
+app_icon_72x72 = /main/icons/bigicon-72.png
+app_icon_96x96 = /main/icons/bigicon-96.png
+app_icon_144x144 = /main/icons/bigicon-144.png
+app_icon_192x192 = /main/icons/bigicon-192.png
 
 [osx]
 bundle_identifier = Inbread
