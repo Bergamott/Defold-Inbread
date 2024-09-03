@@ -23,9 +23,6 @@ images {
   image: "/main/help_images/invisible.png"
 }
 images {
-  image: "/main/help_images/wrong@2x.png"
-}
-images {
   image: "/main/help_images/mouth8@2x.png"
 }
 margin: 2

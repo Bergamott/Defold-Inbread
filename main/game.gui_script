@@ -172,7 +172,10 @@ function update(self, dt)
     			self.score_timer = self.score_timer - 2.0
     			self.score = self.score + 1
     			gui.set_text(gui.get_node("score_text"), "" .. self.score)
-    		end
+				if settings_table["sound_on"] then
+					msg.post("/game#blip", "play_sound")
+				end
+			end
     		gui.set_rotation(gui.get_node("clock_hand"), vmath.vector3(0,0,-timer*360.0/max_time))
     		if timer > max_time then
     			gui.set_rotation(gui.get_node("clock_hand"), vmath.vector3(0,0,0))

@@ -1,6 +1,6 @@
 [project]
 title = Inbread
-version = 0.1
+version = 0.2
 custom_resources = main/resources/levels.txt
 
 [bootstrap]
@@ -9,6 +9,8 @@ render = /main/custom.renderc
 
 [input]
 game_binding = /input/game.input_bindingc
+gamepads = /builtins/input/default.gamepadsc
+use_accelerometer = 0
 
 [display]
 width = 320
@@ -31,6 +33,7 @@ app_icon_72x72 = /main/icons/bigicon-72.png
 app_icon_96x96 = /main/icons/bigicon-96.png
 app_icon_144x144 = /main/icons/bigicon-144.png
 app_icon_192x192 = /main/icons/bigicon-192.png
+version_code = 2
 
 [osx]
 bundle_identifier = Inbread
